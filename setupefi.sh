@@ -10,12 +10,7 @@ rm $0
 
 pacman -Syu
 
-pacman -S --noconfirm python-pip
-pacman -S --noconfirm cloud-guest-utils
-pacman -S --noconfirm wget
-pacman -S --noconfirm sudo
-pacman -S --noconfirm sshfs
-pacman -S --noconfirm shadow
+pacman -S --noconfirm python-pip cloud-guest-utils wget sudo sshfs shadow
 
 wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.gz
 tar -zxvf cloud-init-17.1.tar.gz
@@ -29,6 +24,14 @@ python setup.py install --init-system systemd
 
 wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27/raw/d5fc92cab3049d108599063cc6e9091bde025f6a/cloud.cfg
 mv cloud.cfg /etc/cloud/cloud.cfg
+
+cd ../
+rm -fr rm cloud-init-17.1.tar.gz rm cloud-init-17.1
+
+systemctl enable cloud-init-local.service
+systemctl enable cloud-init.service
+systemctl enable cloud-config.service
+systemctl enable cloud-final.service
 
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
