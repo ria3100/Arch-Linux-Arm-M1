@@ -8,9 +8,15 @@ pacman -Syu --noconfirm efibootmgr
 efibootmgr --disk /dev/vda --part 1 --create --label "Arch Linux ARM" --loader /Image --unicode "root=UUID=$EXT4_UUID rw initrd=\initramfs-linux.img" --verbose
 rm $0
 
-pacman -S --noconfirm python-pip
+pacman -Syu
+pacman -S --noconfirm gcc
+pacman -S --noconfirm pyenv
+
 pacman -S --noconfirm cloud-guest-utils
 pacman -S --noconfirm wget
+
+pyenv install 3.7.12
+pyenv global 3.7.12
 
 wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.gz
 tar -zxvf cloud-init-17.1.tar.gz
