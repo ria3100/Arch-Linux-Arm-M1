@@ -13,6 +13,7 @@ pacman -Syu
 pacman -S --noconfirm python-pip
 pacman -S --noconfirm cloud-guest-utils
 pacman -S --noconfirm wget
+pacman -S --noconfirm sudo
 
 wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.gz
 tar -zxvf cloud-init-17.1.tar.gz
