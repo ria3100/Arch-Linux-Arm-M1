@@ -24,7 +24,10 @@ wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27
 mv cloud-init-util.py cloudinit/util.py
 python setup.py install --init-system systemd
 
-wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27/raw/c651e04a06a80217194e26b620a947b85886959d/cloud.cfg
+wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27/raw/d5fc92cab3049d108599063cc6e9091bde025f6a/cloud.cfg
 mv cloud.cfg /etc/cloud/cloud.cfg
+
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
 poweroff
