@@ -24,4 +24,7 @@ wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27
 mv cloud-init-util.py cloudinit/util.py
 python setup.py install --init-system systemd
 
+wget https://gist.githubusercontent.com/ria3100/a6dc3fcddd39e02727e55f92bf489b27/raw/927056066772299a9750467b087b7d300071ef84/cloud.cfg
+mv cloud.cfg /etc/cloud/cloud.cfg
+
 poweroff
